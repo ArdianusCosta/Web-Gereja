@@ -31,3 +31,10 @@ if (!function_exists('getYoutubeId')) {
     }
 }
 
+if(!function_exists('tanggalWaktu')){
+    function tanggalWaktu($datetime, string $format = 'd M Y H:i:s', string $timezone = 'Asia/Jakarta'): string
+    {
+        return \Carbon\Carbon::parse($datetime)->timezone($timezone)->format($format);
+    }
+}
+

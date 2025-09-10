@@ -50,8 +50,7 @@ class GerejaResource extends Resource
                         ->directory('gereja')
                         ->visibility('public')
                         ->nullable()
-                        ->columnSpanFull()
-                        ->placeholder('Masukkan Foto Gereja...'),
+                        ->columnSpanFull(),
                     FileUpload::make('gambar_qris')
                         ->label('QRIS Gereja')
                         ->image()
@@ -59,8 +58,7 @@ class GerejaResource extends Resource
                         ->columnSpanFull()
                         ->directory('qris-gereja')
                         ->visibility('public')
-                        ->nullable()
-                        ->placeholder('Masukkan Foto QRIS Gereja...'),
+                        ->nullable(),
                     RichEditor::make('alamat')
                         ->label('Alamat Gereja')
                         ->nullable()
@@ -95,10 +93,12 @@ class GerejaResource extends Resource
                     ->html(),
                 TextColumn::make('created_at')
                     ->label('created_at')
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->formatStateUsing(fn($state) => $state ? tanggalWaktu($state): '-'),
                 TextColumn::make('updated_at')
                     ->label('updated_at')
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->formatStateUsing(fn($state) => $state ? tanggalWaktu($state): '-'),
             ])
             ->filters([
                 //

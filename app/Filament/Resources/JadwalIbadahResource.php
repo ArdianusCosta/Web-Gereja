@@ -117,10 +117,12 @@ class JadwalIbadahResource extends Resource
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->label('created_at')
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->formatStateUsing(fn($state) => $state ? tanggalWaktu($state): '-'),
                 TextColumn::make('updated_at')
                     ->label('updated_at')
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->formatStateUsing(fn($state) => $state ? tanggalWaktu($state): '-'),
             ])
             ->filters([
                 //
