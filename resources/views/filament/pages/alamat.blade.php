@@ -1,6 +1,5 @@
 <x-filament-panels::page>
     <div class="space-y-6">
-        <h2 class="text-xl font-bold text-gray-800 dark:text-gray-200">Alamat & Maps</h2>
 
         <!-- Grid utama -->
         <div class="grid grid-cols-2 gap-4">
@@ -204,7 +203,7 @@
                             [latInput, lonInput].forEach(input => {
                                 input.addEventListener("change", function () {
                                     let lat = parseFloat(latInput.value.trim());
-                                    let lon = parseFloat(lonInput.value.trim());
+                                    let     lon = parseFloat(lonInput.value.trim());
                                     if (!isNaN(lat) && !isNaN(lon)) {
                                         map.flyTo({ center: [lon, lat], zoom: 13 });
                                         marker.setLngLat([lon, lat]);
